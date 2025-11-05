@@ -1,0 +1,115 @@
+.app-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #ecfdf5, #d1fae5);
+}
+
+/* Login Page Styles */
+.login-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #34d399, #10b981, #14b8a6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.login-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: black;
+  opacity: 0.1;
+}
+
+.login-card {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 28rem;
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  height: 5rem;
+  background-color: white;
+  border-radius: 9999px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  margin-bottom: 1rem;
+}
+
+.login-form-card {
+  background-color: white;
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 2rem;
+}
+
+/* Dashboard Styles */
+.dashboard-header {
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.stats-card {
+  background: linear-gradient(to bottom right, #10b981, #059669);
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 2rem;
+  color: white;
+}
+
+.glass-card {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(16px);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.category-card {
+  background: linear-gradient(to bottom right, #fff7ed, #fee2e2);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  border: 2px solid #fed7aa;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Button Hover Effects */
+.btn-hover {
+  transition: all 0.3s ease;
+}
+
+.btn-hover:hover {
+  transform: scale(1.05);
+}
+
+/* Input Focus Effects */
+input:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}/* App.css */
+
