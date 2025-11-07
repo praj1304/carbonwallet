@@ -4,6 +4,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import ForgotPassword from "./components/ForgotPassword";
 import Dashboard from "./components/Dashboard";
+import TransactionUpload from "./components/TransactionUpload";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -36,31 +37,50 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/login" />} />
+      {/* Default Route */}
+      <Route path="/" element={<Navigate to="/login" replace />} />
+
+      {/* 🔐 Auth Routes */}
       <Route path="/login" element={<Login onLogin={handleLogin} />} />
       <Route path="/signup" element={<Signup />} />
       <Route
         path="/forgot-password"
         element={<ForgotPassword onBackToLogin={() => navigate("/login")} />}
       />
+
+      {/* 🏠 Protected Dashboard */}
       <Route
         path="/dashboard"
         element={
           user ? (
-            <Dashboard
-              // ✅ Fallback: if user.name isn’t available, show user.email
-              userName={user.name || user.email}
-              onLogout={handleLogout}
-            />
+            <Dashboard user={user} onLogout={handleLogout} />
           ) : (
             <Navigate to="/login" replace />
           )
         }
       />
+
+      {/* 📤 Upload Transactions Page */}
+      <Route
+        path="/upload"
+        element={
+          user ? (
+            <TransactionUpload user={user} />
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+
+      {/* ❌ 404 Fallback */}
       <Route
         path="*"
         element={
-          <h1 style={{ textAlign: "center" }}>404 - Page Not Found</h1>
+          <div className="flex items-center justify-center min-h-screen bg-gray-50">
+            <h1 className="text-3xl font-bold text-gray-700">
+              404 - Page Not Found
+            </h1>
+          </div>
         }
       />
     </Routes>
